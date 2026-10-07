@@ -347,7 +347,7 @@ footer .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;pa
         </article>
         <article class="proj tilt" style="--c:var(--coral)">
           <div class="art"><span class="num">03</span>
-            <svg viewBox="0 0 460 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g font-family="Syne,sans-serif" font-weight="800"><text x="24" y="92" font-size="44" fill="var(--ink)">186/4</text><text x="190" y="92" font-size="16" fill="var(--muted)" font-family="JetBrains Mono,monospace">(32.1)</text></g><circle cx="300" cy="78" r="6" fill="var(--coral)"><animate attributeName="opacity" values="1;.2;1" dur="1.4s" repeatCount="indefinite"/></circle><text x="314" y="83" font-family="JetBrains Mono,monospace" font-size="13" fill="var(--coral)">LIVE</text><text x="24" y="124" font-family="JetBrains Mono,monospace" font-size="10" fill="var(--muted)">sample score · illustration</text></svg></div>
+            <svg viewBox="0 0 460 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g font-family="Syne,sans-serif" font-weight="800"><text x="24" y="92" font-size="44" fill="var(--ink)">186/4</text><text x="282" y="92" font-size="16" fill="var(--muted)" font-family="JetBrains Mono,monospace">(32.1)</text></g><circle cx="368" cy="78" r="6" fill="var(--coral)"><animate attributeName="opacity" values="1;.2;1" dur="1.4s" repeatCount="indefinite"/></circle><text x="382" y="83" font-family="JetBrains Mono,monospace" font-size="13" fill="var(--coral)">LIVE</text><text x="24" y="124" font-family="JetBrains Mono,monospace" font-size="10" fill="var(--muted)">sample score · illustration</text></svg></div>
           <div class="body">
             <span class="tag">Real-time web · Full Stack</span>
             <h3>CrickLive</h3>
@@ -544,7 +544,8 @@ var FINE=matchMedia('(hover: hover) and (pointer: fine)').matches;
     var wrap=document.getElementById('trackwrap'),track=document.getElementById('track');
     wrap.classList.add('pinned');
     var dist=function(){return Math.max(0,track.scrollWidth-innerWidth);};
-    var tw=gsap.to(track,{x:function(){return -dist()},ease:'none',scrollTrigger:{trigger:'#work',start:'top top',end:function(){return '+='+dist()},pin:true,scrub:1,invalidateOnRefresh:true}});
+    // Pin so the bottom of the cards (with their links) stays on screen while they slide.
+    var tw=gsap.to(track,{x:function(){return -dist()},ease:'none',scrollTrigger:{trigger:'#work',start:function(){var w=document.getElementById('work');return w.offsetHeight>innerHeight?'bottom bottom':'top top';},end:function(){return '+='+dist()},pin:true,scrub:1,invalidateOnRefresh:true}});
     return function(){wrap.classList.remove('pinned');tw.kill();gsap.set(track,{x:0});};
   });
   addEventListener('load',function(){ScrollTrigger.refresh();});
