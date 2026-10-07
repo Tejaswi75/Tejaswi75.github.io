@@ -319,13 +319,13 @@ footer .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;pa
             <h3>VectorDB</h3>
             <p class="sub">A vector database built from scratch in C++</p>
             <ul>
-              <li>Stores and searches high-dimensional embeddings through a web interface.</li>
-              <li>HNSW, KD-Tree and brute-force search implemented by hand and compared.</li>
-              <li>Local RAG pipeline with Ollama, Llama 3.2 and Nomic Embed Text.</li>
-              <li>REST APIs and Docker support for deployment.</li>
+              <li>HNSW, KD-Tree and brute-force search implemented by hand and benchmarked.</li>
+              <li>HNSW is 20× faster than brute force on 768-D vectors at 100% recall.</li>
+              <li>Neighbour-selection heuristic from the HNSW paper raised recall from 64% to 100%.</li>
+              <li>Local RAG with Ollama, REST APIs, web UI and Docker Compose.</li>
             </ul>
             <div class="chips"><span>C++17</span><span>HNSW</span><span>KD-Tree</span><span>RAG</span><span>Docker</span></div>
-            <a class="go" href="https://github.com/Tejaswi75" target="_blank" rel="noopener">View on GitHub ↗</a>
+            <a class="go" href="https://github.com/Tejaswi75/VectorDB-HNSW-RAG" target="_blank" rel="noopener">View on GitHub ↗</a>
           </div>
         </article>
         <article class="proj tilt" style="--c:var(--mint)">
@@ -334,15 +334,15 @@ footer .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;pa
           <div class="body">
             <span class="tag">Agentic AI · Backend</span>
             <h3>Adaptive RAG</h3>
-            <p class="sub">A chatbot that retrieves, grades and searches the web</p>
+            <p class="sub">A chatbot that routes, retrieves, grades and searches the web</p>
             <ul>
-              <li>Five-node LangGraph workflow: classifier, retriever, grader, rewriter, generator.</li>
-              <li>FAISS vector search with MongoDB for persistent chat memory.</li>
-              <li>Groq-powered inference.</li>
-              <li>Streamlit UI with PDF/TXT uploads and conversational Q&amp;A.</li>
+              <li>Seven-node LangGraph agent: router, retriever, grader, rewriter, web search, generator.</li>
+              <li>100% document-QA and routing accuracy on an LLM-judged test set.</li>
+              <li>Per-user document isolation; FAISS + FastEmbed, Groq inference.</li>
+              <li>Deployed live on Streamlit Cloud.</li>
             </ul>
-            <div class="chips"><span>Python</span><span>LangGraph</span><span>FAISS</span><span>MongoDB</span><span>Groq</span></div>
-            <a class="go" href="https://github.com/Tejaswi75" target="_blank" rel="noopener">View on GitHub ↗</a>
+            <div class="chips"><span>Python</span><span>LangGraph</span><span>FAISS</span><span>FastAPI</span><span>Groq</span></div>
+            <div style="display:flex;gap:18px;flex-wrap:wrap"><a class="go" href="https://tejaswi75-adaptive-rag.streamlit.app/" target="_blank" rel="noopener">Live demo ↗</a><a class="go" href="https://github.com/Tejaswi75/Adaptive-RAG" target="_blank" rel="noopener">View on GitHub ↗</a></div>
           </div>
         </article>
         <article class="proj tilt" style="--c:var(--coral)">
@@ -596,7 +596,7 @@ var FIT={
        proof:["Database constraints that block duplicate votes","Retry handling and caching when an external API fails","Vector search engine and REST APIs written in C++17"],
        chips:["Node.js","Express.js","C++","REST APIs","MongoDB","MySQL","Supabase","Docker","SQL"]},
   ai:{say:"I've worked on LLMs from both ends: evaluating model output for post-training, and building the retrieval systems models run inside.",
-       proof:["LLM Post Training Intern at Ethara AI","Adaptive RAG: 5-node LangGraph agent with web fallback","VectorDB: HNSW and KD-Tree search plus a local RAG pipeline"],
+       proof:["LLM Post Training Intern at Ethara AI","Adaptive RAG: 7-node LangGraph agent, deployed live","VectorDB: HNSW and KD-Tree search plus a local RAG pipeline"],
        chips:["Python","LangChain","LangGraph","FAISS","RAG","Prompt engineering","Ollama","Groq","NLP","Generative AI"]}
 };
 function setRole(k){var d=FIT[k];
